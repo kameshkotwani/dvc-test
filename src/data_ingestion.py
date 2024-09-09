@@ -5,6 +5,7 @@ data = pd.read_csv("https://raw.githubusercontent.com/araj2/customer-database/ma
 
 data:pd.DataFrame = data.iloc[:,3:]
 
-data = data[data['Length of Membership'] > 3]
+data = data[data['Length of Membership'] > 1]
+data.drop(columns=['Avg. Session Length'],inplace=True)
 
 data.to_csv(os.path.join('data/raw','customer.csv'),index=False)
